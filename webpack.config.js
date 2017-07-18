@@ -25,6 +25,7 @@ module.exports = {
           path.resolve(__dirname, 'src')
         ],
         use: [
+          { loader: 'react-hot-loader' },
           { loader: 'babel-loader',
             options: {
               plugins: [ 'transform-runtime' ]
