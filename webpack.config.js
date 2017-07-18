@@ -18,14 +18,19 @@ module.exports = {
     new webpack.NoEmitOnErrorsPlugin()
   ],
   module: {
-    loaders: [
+    rules: [
       {
-        loaders: ['babel-loader'],
-        include: [
-          path.resolve(__dirname, "src"),
-        ],
         test: /\.js$/,
-        plugins: ['transform-runtime'],
+        include: [
+          path.resolve(__dirname, 'src')
+        ],
+        use: [
+          { loader: 'babel-loader',
+            options: {
+              plugins: [ 'transform-runtime' ]
+            }
+          }
+        ]
       }
     ]
   }
