@@ -16,5 +16,17 @@ module.exports = {
     new webpack.optimize.OccurrenceOrderPlugin(),
     new webpack.HotModuleReplacementPlugin(),
     new webpack.NoEmitOnErrorsPlugin()
-  ]
+  ],
+  module: {
+    loaders: [
+      {
+        loaders: ['babel-loader'],
+        include: [
+          path.resolve(__dirname, "src"),
+        ],
+        test: /\.js$/,
+        plugins: ['transform-runtime'],
+      }
+    ]
+  }
 }
