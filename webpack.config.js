@@ -1,6 +1,6 @@
 var path = require('path')
 var webpack = require('webpack')
-var NpmInstallPlugin = require('npm-install-webpack-plugin')
+var NpmInstallPlugin = require('npm-install-webpack2-plugin')
 
 module.exports = {
   devtool: 'cheap-module-eval-source-map',
