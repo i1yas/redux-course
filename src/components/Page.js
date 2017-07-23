@@ -4,10 +4,10 @@ import './../styles/page.css'
 
 export default class Page extends Component {
   onYearBtnClick(e) {
-    this.props.setYear(+e.target.textContent);
+    this.props.getPhotos(+e.target.textContent);
   }
   render() {
-    const { year, photos } = this.props;
+    const { fetching, year, photos } = this.props;
     return (
       <div className='page'>
         <p className='page__button-container'>
@@ -22,7 +22,12 @@ export default class Page extends Component {
           </button>
         </p>
         <h3 className='page__title'>{year} год</h3>
-        <p className='page__count'>У тебя {photos.length} фоток.</p>
+        {
+          fetching ?
+          <p className='page__count'>Загрузка</p>
+          :
+          <p className='page__count'>У тебя {photos.length} фоток.</p>
+        }
       </div>
     );
   }
@@ -31,5 +36,5 @@ export default class Page extends Component {
 Page.propTypes = {
   year: PropTypes.number.isRequired,
   photos: PropTypes.array.isRequired,
-  setYear: PropTypes.func.isRequired
+  getPhotos: PropTypes.func.isRequired
 };
