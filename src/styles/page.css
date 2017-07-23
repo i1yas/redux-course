@@ -1,0 +1,33 @@
+.page
+	padding: 20px
+	background-color: #F8F8F8
+	border-radius: 5px
+
+.page__button-container
+	margin: 0
+	padding: 0 0 10px
+	border-bottom: 1px solid rgba(0,0,0, 0.05)
+
+.page__button
+	margin-right: 5px
+	font-size: 20px
+	border: none
+	color: white
+	background-color: #595959
+	position: relative
+	border-radius: 40px
+	transition: background-color .1s linear
+.page__button:hover
+	background-color: #818181
+.page__button:focus
+	outline: 0
+.page__button:active
+	top: 1px
+
+.page__title
+	margin: 15px 20px
+	font-size: 30px
+	color: #B8B8B8
+
+.page__count
+	margin-bottom: 0
