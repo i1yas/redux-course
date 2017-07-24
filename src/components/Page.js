@@ -8,25 +8,29 @@ export default class Page extends Component {
   }
   render() {
     const { fetching, year, photos } = this.props;
+    const years = [2017, 2016, 2015, 2014, 2013, 2012, 2011, 2010]
     return (
       <div className='page'>
         <p className='page__button-container'>
-          <button className='page__button' onClick={::this.onYearBtnClick}>
-            2015
-          </button>
-          <button className='page__button' onClick={::this.onYearBtnClick}>
-            2016
-          </button>
-          <button className='page__button' onClick={::this.onYearBtnClick}>
-            2017
-          </button>
+          {years.map((year, ind) => {
+            return (
+                <button className='page__button' onClick={::this.onYearBtnClick} key={ind}>
+                  {year}
+                </button>
+              )
+          })}
         </p>
         <h3 className='page__title'>{year} год</h3>
         {
           fetching ?
           <p className='page__count'>Загрузка</p>
           :
-          <p className='page__count'>У тебя {photos.length} фоток.</p>
+          photos.map((photo, ind) => {
+            <div className='photo' key={ind}>
+              <img className='photo__img' src={photo.src} alt=''/>
+              <p className='photo__likes'>{photo.likes.count}</p>
+            </div>
+          })
         }
       </div>
     );
