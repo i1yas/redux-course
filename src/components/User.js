@@ -3,9 +3,21 @@ import PropTypes from 'prop-types'
 
 export default class User extends Component {
   render() {
-    const { name } = this.props
+    const { name, error } = this.props
+    let template
+
+    if(name) {
+      template = <p>Привет, {name}!</p>
+    } else {
+      template = <button className='btn' onClick={this.props.handleLogin}>Войти</button>
+    }
     return <div>
-      <p>Привет, {name}!</p>
+      {template}
+      {error ?
+        <p>{error}. <br /> Попробуйте еще раз.</p>
+        :
+        ''
+      }
     </div>
   }
 }
